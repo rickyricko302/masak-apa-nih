@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+    </data>
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:fillViewport="true"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:scrollbarSize="3dp"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarThumbVertical="@color/orange"
+        >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:id="@+id/parentSearch"
+                    android:focusableInTouchMode="true"
+                    tools:context=".fragments.SearchFragment">
+
+                <!-- TODO: Update blank fragment layout -->
+
+                <SearchView android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:id="@+id/serachView"
+                            android:iconifiedByDefault="false"
+                            android:queryHint="Masukan kata kunci"
+                            android:layout_margin="20dp"
+
+                            android:queryBackground="@android:color/transparent"
+                            android:background="@drawable/sv_bg" app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintTop_toBottomOf="@+id/serachView"
+                              app:layout_constraintBottom_toBottomOf="parent"
+                              android:gravity="center"
+                              android:visibility="visible"
+                              android:id="@+id/linSearch"
+                              android:layout_marginRight="20dp"
+                              android:layout_marginLeft="20dp"
+                              android:orientation="vertical">
+                    <ImageView android:layout_width="180dp" android:layout_height="180dp"
+                               android:src="@drawable/ic_restaurant_clone" app:layout_constraintEnd_toEndOf="parent"
+                    />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                              android:text="Cari resep yang ingin anda buat"
+                              android:textSize="20sp"
+                              android:singleLine="true"
+                              android:maxLines="1"
+                              android:ellipsize="end"
+                              android:layout_marginTop="10dp"
+
+                              android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <com.facebook.shimmer.ShimmerFrameLayout android:layout_width="match_parent"
+                                                         android:layout_height="wrap_content"
+                                                         android:id="@+id/shimmerSearch"
+                                                         app:shimmer_auto_start="true"
+                                                         android:layout_marginLeft="20dp"
+                                                         android:layout_marginRight="20dp"
+                                                         android:layout_marginTop="30dp"
+                                                         android:visibility="gone"
+                                                         app:shimmer_duration="1000"
+                                                         app:layout_constraintEnd_toEndOf="parent"
+                                                         app:layout_constraintStart_toStartOf="parent"
+                                                         app:layout_constraintTop_toBottomOf="@+id/serachView">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:orientation="vertical">
+                        <include
+                                layout="@layout/shimmer_resep"/>
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+                <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:id="@+id/recyclerSearch"
+                                                           app:layout_constraintEnd_toEndOf="parent"
+                                                           android:visibility="gone"
+                                                           app:layout_constraintStart_toStartOf="parent"
+                                                           app:layout_constraintTop_toBottomOf="@+id/serachView"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+</layout>

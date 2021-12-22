@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="DetailResepBinding">
+        <variable name="vm" type="com.hikki.masakapanih.model.DetailResepModel"/>
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:background="@color/black"
+            tools:context=".fragments.DetailResep">
+
+        <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+                                                         android:layout_height="200dp"
+                                                         android:id="@+id/appBarLayout"
+        >
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="@color/orange"
+                    app:title="@{vm.results.title}"
+                    app:expandedTitleMarginBottom="15dp"
+                    app:expandedTitleMargin="0dp"
+                    app:expandedTitleMarginStart="20dp"
+                    app:expandedTitleMarginEnd="20dp"
+                    app:expandedTitleTextAppearance="@style/collapsingToolbarLayoutTitleColor"
+                    app:collapsedTitleTextAppearance="@style/collapsingToolbarLayoutTitleColor"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+                <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+                           android:background="@color/black"
+                           android:id="@+id/thumbDetail"
+                           thumb="@{vm.results.thumb}"
+                           app:layout_collapseMode="parallax"
+                />
+
+
+                <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_scrollFlags="scroll|enterAlways"
+                        app:titleTextColor="@color/white"
+                        app:subtitleTextColor="@color/white"
+
+                        app:layout_collapseMode="pin">
+                    <ImageView
+                            android:id="@+id/back_button"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="20dp"
+                            android:src="@drawable/ic_arrow_back_white_24dp"/>
+                    <ImageView
+                            android:id="@+id/simpanResep"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="20dp"
+                            android:visibility="gone"
+                            android:src="@drawable/ic_bookmark_border_white_24dp"/>
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="vertical"
+                android:scrollbarSize="3dp"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarThumbVertical="@color/orange"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+            >
+
+                <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+                                                                   android:layout_height="wrap_content"
+                                                                   android:clickable="true"
+                                                                   android:id="@+id/chunk7"
+                                                                   android:layout_marginLeft="20dp"
+                                                                   android:layout_marginTop="30dp"
+                                                                   android:layout_marginRight="20dp"
+                                                                   app:cardBackgroundColor="#2B2B2B"
+                                                                   app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardViewCut2"
+                >
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+
+                                    android:padding="10dp"
+                    >
+                        <ImageView android:layout_width="30dp" android:layout_height="30dp"
+                                   android:layout_marginRight="10dp"
+                                   android:id="@+id/chunkj"
+                                   android:layout_centerVertical="true"
+                                   app:srcCompat="@drawable/ic_person_black_24dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:text="@{vm.results.author.user}"
+                                  android:textColor="@color/orange"
+                                  android:textSize="20sp"
+                                  android:layout_toRightOf="@id/chunkj"
+                                  android:layout_marginRight="6dp"
+                                  android:id="@+id/chunki"
+                        />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:text="@{vm.results.author.datePublished}"
+                                  android:textColor="@color/darkOrange"
+                                  android:textSize="15sp"
+                                  android:layout_toRightOf="@id/chunkj"
+                                  android:layout_below="@id/chunki"
+                        />
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                              android:gravity="center"
+                              android:orientation="horizontal"
+                              android:layout_below="@+id/chunk7"
+                              android:layout_marginTop="30dp"
+                              android:id="@+id/chunk15"
+                              android:layout_marginLeft="20dp"
+                              android:layout_marginRight="20dp"
+                >
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:gravity="center"
+                                  android:orientation="vertical">
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp"
+                                   android:src="@drawable/ic_local_fire_department_white_24dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:text="@{vm.results.dificulty}"
+                                  android:gravity="center"
+                                  android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:gravity="center"
+                                  android:orientation="vertical">
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp"
+                                   android:src="@drawable/ic_hourglass_top_white_24dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:text="@{vm.results.times}"
+                                  android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                                  android:layout_weight="1"
+                                  android:gravity="center"
+                                  android:orientation="vertical">
+                        <ImageView android:layout_width="40dp" android:layout_height="40dp"
+                                   android:src="@drawable/ic_restaurant_white_24dp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:text="@{vm.results.servings}"
+                                  android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                                   android:id="@+id/chunk8"
+                                                                   android:layout_below="@+id/chunk15"
+                                                                   android:clickable="true"
+                                                                   android:layout_marginLeft="20dp"
+                                                                   android:layout_marginTop="30dp"
+                                                                   android:layout_marginRight="20dp"
+                                                                   app:cardBackgroundColor="#2B2B2B"
+                                                                   app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardViewCut2"
+                >
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+
+                                    android:padding="10dp"
+                    >
+                        <ImageView android:layout_width="30dp" android:layout_height="30dp"
+                                   android:layout_marginRight="10dp"
+                                   android:layout_gravity="top"
+                                   android:id="@+id/chunk11"
+                                   app:srcCompat="@drawable/ic_flourescent_white_36dp"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:id="@+id/chunDeskripsi"
+                                  android:textColor="@color/orange"
+                                  android:textSize="20sp"
+                                  android:layout_toRightOf="@id/chunk11"
+                        />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:text="@{vm.results.desc}"
+                                  android:textColor="@color/white"
+                                  android:textSize="15sp"
+                                  android:layout_marginTop="10dp"
+                                  android:layout_below="@+id/chunk11"
+                        />
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                                   android:id="@+id/chunk8i"
+                                                                   android:layout_below="@+id/chunk8"
+                                                                   android:clickable="true"
+                                                                   android:layout_marginLeft="20dp"
+                                                                   android:layout_marginTop="30dp"
+                                                                   android:layout_marginRight="20dp"
+                                                                   app:cardBackgroundColor="#2B2B2B"
+                                                                   app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardViewCut2"
+                >
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                    android:id="@+id/chunk12"
+                                    android:padding="10dp"
+                    >
+                        <ImageView android:layout_width="30dp" android:layout_height="30dp"
+                                   android:layout_marginRight="10dp"
+                                   android:layout_gravity="top"
+                                   android:id="@+id/chunk13"
+                                   app:srcCompat="@drawable/ingridients"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:id="@+id/chunkBahanBaku"
+                                  android:textColor="@color/orange"
+                                  android:textSize="20sp"
+                                  android:layout_toRightOf="@id/chunk13"
+                        />
+                        <ImageView android:layout_width="70dp" android:layout_height="70dp"
+                                   android:layout_below="@+id/chunk13"
+                                   android:id="@+id/imgBahabBaku"
+                                   android:layout_centerHorizontal="true"
+                                   android:layout_marginTop="10dp"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:gravity="center"
+                                  android:id="@+id/bahanBakuText"
+                                  android:layout_below="@+id/imgBahabBaku"
+                                  android:layout_marginTop="10dp"
+                                  android:textColor="@color/white"
+                                  />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:layout_below="@+id/bahanBakuText"
+                                  android:id="@+id/resepIngridient"
+                                  android:textColor="@color/white"
+                                  android:textSize="15sp"
+                                  android:layout_marginTop="10dp"
+                        />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                                   android:id="@+id/chunk8ii"
+                                                                   android:layout_below="@+id/chunk8i"
+                                                                   android:clickable="true"
+                                                                   android:layout_marginLeft="20dp"
+                                                                   android:layout_marginTop="30dp"
+                                                                   android:layout_marginRight="20dp"
+                                                                   app:cardBackgroundColor="#2B2B2B"
+                                                                   app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardViewCut2"
+                >
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                    android:id="@+id/chunk81"
+                                    android:padding="10dp"
+                    >
+                        <ImageView android:layout_width="30dp" android:layout_height="30dp"
+                                   android:layout_marginRight="10dp"
+                                   android:layout_gravity="top"
+                                   android:id="@+id/chunk11i"
+                                   app:srcCompat="@drawable/ic_format_list_numbered_white_24dp"/>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:id="@+id/chunkLangkah"
+                                  android:textColor="@color/orange"
+                                  android:textSize="20sp"
+                                  android:layout_toRightOf="@id/chunk11i"
+                        />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:textColor="@color/white"
+                                  android:textSize="15sp"
+                                  android:layout_marginTop="10dp"
+                                  android:id="@+id/resepLangkah"
+                                  android:layout_below="@+id/chunk11i"
+                        />
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data class="SimpanBinding">
+        <variable name="vm" type="com.hikki.masakapanih.model.DbResepModel"/>
+    </data>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_lin"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+
+    >
+        <ImageView android:layout_width="match_parent" android:layout_height="200dp"
+                thumb="@{vm.img}"
+        />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:textSize="20sp"
+                  android:text="@{vm.judul}"
+                  android:textColor="@color/white"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginTop="15dp"
+                  android:layout_marginRight="15dp"
+        />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:text="@{vm.author}"
+                  android:gravity="right"
+                  android:textColor="@color/orange"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginRight="15dp"
+                  android:textSize="15sp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:layout_marginBottom="15dp"
+                      android:gravity="center_vertical"
+                      android:orientation="horizontal">
+            <Button android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:text="Lihat Resep"
+                    android:id="@+id/simpanLihat"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/orange"
+                    android:fontFamily="serif"
+                    android:layout_weight="1"/>
+            <Button android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:text="Hapus Resep"
+                    android:layout_marginRight="15sp"
+                    android:id="@+id/simpanHapus"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="serif"
+                    android:backgroundTint="@color/danger"
+                    android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
