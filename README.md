@@ -4,7 +4,7 @@
 ![](https://github.com/rickyricko302/masak-apa-nih/blob/main/screenshoot/mockup_1.jpg)
 ![](https://github.com/rickyricko302/masak-apa-nih/blob/main/screenshoot/mockup_2.jpg)
 ---
-Resep makanan dari [Masak Apa API by Tomorisakura](https://github.com/tomorisakura/unofficial-masakapahariini-api) dengan pattern MVVM & navigation component🔥.
+Resep masakan dari [Masak Apa API by Tomorisakura](https://github.com/tomorisakura/unofficial-masakapahariini-api) dengan pattern MVVM & navigation component🔥.
 ### Dependency
 
 - [x] Retrofit
