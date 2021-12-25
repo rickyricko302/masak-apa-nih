@@ -10,6 +10,7 @@
             android:background="@color/black"
             app:srl_direction="bottom"
             android:id="@+id/swipyHome"
+            android:transitionGroup="true"
             tools:context=".fragments.HomeFragment">
 
         <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="match_parent"

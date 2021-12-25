@@ -10,6 +10,7 @@
                 android:fillViewport="true"
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
+                android:transitionGroup="true"
                 android:scrollbarSize="3dp"
                 android:scrollbarAlwaysDrawVerticalTrack="true"
                 android:scrollbarThumbVertical="@color/orange"

@@ -23,5 +23,6 @@
                                       app:menu="@menu/bottom_menu"
                                       app:backgroundColor="@color/black"
                                       app:indicatorColor="@color/orange"
+
                                       android:layout_alignParentBottom="true"/>
 </RelativeLayout>

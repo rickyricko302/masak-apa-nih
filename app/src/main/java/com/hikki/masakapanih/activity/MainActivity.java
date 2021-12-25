@@ -14,8 +14,6 @@ import com.hikki.masakapanih.R;
 import me.ibrahimsn.lib.SmoothBottomBar;
 import org.jetbrains.annotations.NotNull;
 
-import static androidx.navigation.ui.NavigationUI.setupWithNavController;
-
 public class MainActivity extends AppCompatActivity {
 
     SmoothBottomBar smoothBottomBar;

@@ -17,6 +17,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.facebook.shimmer.ShimmerFrameLayout;
+import com.google.android.material.transition.MaterialFadeThrough;
 import com.hikki.masakapanih.R;
 import com.hikki.masakapanih.adapter.KategoriAdapter;
 import com.hikki.masakapanih.adapter.ResepHomeAdapter;
@@ -56,6 +57,8 @@ public class HomeFragment extends Fragment implements ErrorHandling {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setEnterTransition(new MaterialFadeThrough());
+        setExitTransition(new MaterialFadeThrough());
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

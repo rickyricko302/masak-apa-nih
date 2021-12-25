@@ -15,6 +15,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.facebook.shimmer.ShimmerFrameLayout;
+import com.google.android.material.transition.MaterialFadeThrough;
 import com.hikki.masakapanih.R;
 import com.hikki.masakapanih.adapter.ResepHomeAdapter;
 import com.hikki.masakapanih.databinding.FragmentDetailKategoriBinding;
@@ -42,7 +43,7 @@ public class DetailKategori extends Fragment implements ErrorHandling {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setEnterTransition(new MaterialFadeThrough());
         if (getArguments() != null) {
            key = getArguments().getString("key");
         }

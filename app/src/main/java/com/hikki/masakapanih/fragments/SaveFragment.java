@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.transition.MaterialFadeThrough;
 import com.hikki.masakapanih.R;
 import com.hikki.masakapanih.adapter.SimpanAdapter;
 import com.hikki.masakapanih.database.AppDatabase;
@@ -29,6 +30,7 @@ import com.hikki.masakapanih.model.DbResepModel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,6 +73,8 @@ public class SaveFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setEnterTransition(new MaterialFadeThrough());
+        setExitTransition(new MaterialFadeThrough());
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -100,6 +104,7 @@ public class SaveFragment extends Fragment {
     }
 
 
+    @SuppressLint("StaticFieldLeak")
     private class getData extends AsyncTask<Void, Void, List<DbResepModel>>{
 
         @Override
@@ -123,7 +128,6 @@ public class SaveFragment extends Fragment {
                         bundle.putString("key", key);
                         bundle.putString("url", url);
                         Navigation.findNavController(v).navigate(R.id.action_saveFragment_to_detailResep,bundle);
-
                     }
 
                     @Override
@@ -139,6 +143,7 @@ public class SaveFragment extends Fragment {
             }
         }
     }
+
     @SuppressLint("StaticFieldLeak")
     private class deleteItem extends AsyncTask<String,Void,Integer>{
 
@@ -153,7 +158,7 @@ public class SaveFragment extends Fragment {
             super.onPostExecute(integer);
             //  Log.e("MODEL", String.valueOf(integer));
             if(integer == 0){
-                Toast.makeText(getActivity(), "gagal dihapus dari daftar resep", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Gagal dihapus dari daftar resep", Toast.LENGTH_SHORT).show();
             }
             else if(integer > 0){
                 Toast.makeText(getActivity(), "Dihapus dari daftar resep", Toast.LENGTH_SHORT).show();

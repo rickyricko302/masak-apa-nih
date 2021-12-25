@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.transition.MaterialFadeThrough;
 import com.hikki.masakapanih.R;
 import com.hikki.masakapanih.database.AppDatabase;
 import com.hikki.masakapanih.databinding.DetailResepBinding;
@@ -68,6 +69,7 @@ public class DetailResep extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setEnterTransition(new MaterialFadeThrough());
         if (getArguments() != null) {
             key = getArguments().getString("key");
             url = getArguments().getString("url");
@@ -186,6 +188,7 @@ public class DetailResep extends Fragment {
                 binding.simpanResep.setImageDrawable(getResources().getDrawable(R.drawable.ic_bookmark_white_24dp));
                 Toast.makeText(getActivity(), "Tersimpan didaftar resep", Toast.LENGTH_SHORT).show();
                 hapus = true;
+
             }
             else{
                 Toast.makeText(getActivity(),"Failed",Toast.LENGTH_SHORT).show();

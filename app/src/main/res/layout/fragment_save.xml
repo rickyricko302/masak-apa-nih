@@ -12,6 +12,7 @@
             android:scrollbarSize="3dp"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             android:scrollbarThumbVertical="@color/orange"
+            android:transitionGroup="true"
             tools:context=".fragments.SaveFragment">
 
         <!-- TODO: Update blank fragment layout -->
